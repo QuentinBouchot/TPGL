@@ -31,11 +31,28 @@ public class Panier {
 		}
 		
 	}
-
+	
+	public boolean retire(){
+		if (estVide()==true){
+			return false;
+		}else{
+			panier.remove(panier.get(panier.size()-1));			
+			return true;			
+		} 
+	}
+	
 	public void affichePanier(){
 		for(int i=0; i< panier.size(); i++){
 			System.out.println("Pays d'origine: "+panier.get(i).getOrigine()+" Prix: "+panier.get(i).getPrix()+"\n");
 		}
+	}
+
+	public double getPrix(){
+		double prixTot=0.0;
+		for(int i=0; i< panier.size(); i++){
+			prixTot=prixTot+panier.get(i).getPrix();
+		}
+		return prixTot;
 	}
 		
 	public boolean estVide(){
